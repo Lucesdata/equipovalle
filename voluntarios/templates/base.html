@@ -1,0 +1,48 @@
+
+
+
+
+{% load static %} <!-- Agregar esta línea al inicio del archivo -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Título de la página{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/estilos_navbar.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">TULIO Gobernador</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'formulario_voluntario' %}">Formulario de Voluntarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'voluntarios_totales' %}">Voluntarios Totales</a>
+                    </li>
+                    
+                    <!-- Agrega aquí más enlaces a otras páginas si las tienes -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <!-- Coloca aquí el contenido del pie de página si lo deseas -->
+    </footer>
+</body>
+</html>
+

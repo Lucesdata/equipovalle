@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Voluntarios Totales{% endblock %}
+
+{% block content %}
+    <h1>Voluntarios Totales</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+                <th>Ciudad</th>
+                <th>Comuna o Corregimiento</th>
+                <th>Tema de Interés</th>
+                <th>Medio de Transporte</th>
+                <th>Apoyar como Testigo Electoral</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for voluntario in voluntarios %}
+            <tr>
+                <td>{{ voluntario.nombre }}</td>
+                <td>{{ voluntario.apellido }}</td>
+                <td>{{ voluntario.telefono }}</td>
+                <td>{{ voluntario.email }}</td>
+                <td>{{ voluntario.ciudad }}</td>
+                <td>{{ voluntario.comuna_o_corregimiento }}</td>
+                <td>{{ voluntario.get_tema_de_interes_display }}</td>
+                <td>{{ voluntario.get_medio_de_transporte_display }}</td>
+                <td>{% if voluntario.apoyar_como_testigo_electoral %} Sí {% else %} No {% endif %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
